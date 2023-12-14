@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1b3358 ;
+    text-align: center;
+    margin-top: 50px;
+}
+
+span {
+    color: black;
+}
+a{
+    text-decoration: none;
+    color: #103d68 ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    margin-top: 30px;;
+}
+.product-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    min-height: 250px; 
+    max-height: auto;
+    position: relative;   
+}
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1c345a;
+    text-align: center;
+}
+.card-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px 8px 0 0;
+}
+.top-search-board{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    height: auto;
+    align-items:center ;
+}
+h2{
+    background-color:#1c345a ;
+    color: white;
+    text-align: center;
+    font-size:1.5rem;
+}

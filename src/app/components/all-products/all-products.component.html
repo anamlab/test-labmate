@@ -1,0 +1,41 @@
+ 
+<h1>All Products</h1>
+<p>Your one-stop shop for all laboratory equipment needs is A-Z Lab Equipment Products. Browse our wide selection of premium tools and materials made to satisfy the needs of experiments and scientific research. Buy now to improve your lab experience with premium tools from reputable manufacturers.</p>
+<h2>Product Catalog {{ currentPage }}</h2><br>
+
+
+<div class="container">
+  <ng-template #noData>
+    <p>No data available for page {{ currentPage }}</p>
+  </ng-template> 
+
+<div class="row" *ngIf="filteredProducts.length > 0; else noData" >
+  <div class="col" *ngFor="let product of filteredProducts; let i = index" >
+    <mat-card class="product-card" >
+          <img class="card-image" [src]="product.imageSrc" [alt]="product.altText" [routerLink]="['/products/lab-equipments/product-details', product.title]">
+          <mat-card-title class="title" >
+            <a [routerLink]="['/products/lab-equipments/product-details', product.title]">{{ product.title }}</a>
+            <i *ngIf="product.subCategories && product.subCategories.length > 0" class="material-icons" (click)="toggle(i)">arrow_downward</i>
+          </mat-card-title>
+          <mat-card-content>
+            <div [@bodyExpansion]="cardStates[i]" class="expandable-content">
+              <div *ngFor="let subCategory of product.subCategories" class="subcats">
+                <a [routerLink]="['/products/lab-equipments/product-details/sub-category-product', subCategory, product.title]">{{ subCategory }}</a>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+      </mat-card>
+    <br>
+  </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination-container">
+  <button mat-button (click)="onPageChange(getPreviousPage())" [disabled]="currentPage === 'A'">Previous</button>
+  <button *ngFor="let page of currentPageBatch" mat-button (click)="onPageChange(page)" [disabled]="currentPage === page">
+    {{ page }}
+  </button>
+  <button mat-button (click)="onPageChange(getNextPage())" [disabled]="currentPage === 'Z'">Next</button>
+</div>

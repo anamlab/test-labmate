@@ -1,0 +1,36 @@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item">
+<a [routerLink]="['/home']" data-abc="true"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+</li>
+        <li class="breadcrumb-item">
+<a [routerLink]="['/catlogs']"  data-abc="true" style="text-decoration: none;"> Catalogs</a>
+</li>
+</ul>
+
+<div class="container" >
+    <h1> Catlogs</h1>
+
+    <div>
+        <ul>
+          <li *ngFor="let link of displayedLinks">{{ link }}</li>
+        </ul>
+      
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <button *ngFor="let page of getPagesArray()" (click)="onPageChange(page)" class="pagination-button">
+              {{ page }}
+            </button>
+        </div>
+    </div>
+
+      <!-- Pagination -->
+  <div class="pagination-container">
+    <button mat-button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of getPagesArray()" mat-button (click)="onPageChange(page)" [disabled]="currentPage === page">
+      {{ page }}
+    </button>
+    <button mat-button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === getPagesArray().length">Next</button>
+  </div>
+
+</div>
+

@@ -1,0 +1,62 @@
+
+
+<div class="container">
+    <div>
+        <button mat-button mat-raised-button color="primary" (click)="generatePDF()"> Download Catalog</button>
+    </div>
+  <div id="pdfContent" class="pdf-preview center-content">
+  <div class="download-pdf">
+  <div class="header">
+    <div>
+      <img class="logo" src="../assets/images/labmate-logo.jpg" alt="logo">
+    </div>
+    <div>
+      <a href="https://www.labmate.com/" style="text-decoration: none; ">www.labmate.com</a> |
+      <a href="mailto:info@labmate.com" style="text-decoration: none;">info@labmate.com</a>
+    </div>
+  </div><br>
+  <div class="product-img ">
+    <h1 class="heading">{{ title }}</h1>  
+    <img  [src]="catalogData[0].imgSrc" alt="logo">
+  </div>
+  <div *ngFor="let product of catalogData" class="content-container">
+    <h1>Overview</h1>
+    <p>{{ product?.overviewContent }}</p>
+
+    <div class="spec-table">
+      <h1>Specifications:</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let spec of product.specifications[0] | keyvalue">
+            <td>{{ spec.key }}</td>
+            <td>{{ spec.value }}</td>
+          </tr>
+        </tbody>
+      </table>       
+    </div>
+    <br>
+    <h1>Features:</h1>
+    <ul>
+      <li *ngFor="let feature of product.features">{{ feature }}</li>
+    </ul>
+    <br>
+    <h1>Applications:</h1>
+    <p>{{ product?.applications }}</p>
+  </div>
+  <br><br><br><br><br>
+
+  <div class="footer"><img class="logo" src="../assets/images/labmate-logo.jpg" alt="logo"><br>
+
+    <p >Labmate Scientific </p>
+    Email:<a href="https://www.labmate.com/" style="text-decoration: none; ">www.labmate.com</a> |
+    Website: <a href="mailto:info@labmate.com" style="text-decoration: none;">info@labmate.com</a>
+  </div>
+  </div>
+  </div>
+</div>

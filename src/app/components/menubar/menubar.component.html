@@ -1,0 +1,93 @@
+<div class="menubar">
+    <button mat-icon-button (click)="sidenav?.toggle()" matTooltip="Menu"><mat-icon>menu</mat-icon> </button>
+    <button class="mat-menu" mat-button  [routerLink]="['/home']"><mat-icon aria-hidden="false" fontIcon="home"></mat-icon>Home</button>
+    <button class="mat-menu" mat-button [routerLink]="['/all-products']"><mat-icon>widgets</mat-icon>All Products</button>
+    <button class="mat-menu" mat-button [routerLink]="['/products/lab-equipments']"><mat-icon>devices_other</mat-icon>Lab Equipment</button>
+    <button class="mat-menu" mat-button [routerLink]="['/products/lab-supplies']"><mat-icon>grain</mat-icon>Lab Supplies</button>
+    <button class="mat-menu" mat-button [routerLink]="['/catalogs']"><mat-icon>library_books</mat-icon>Catalogs</button>
+    <button class="mat-menu" mat-button [routerLink]="['/career']"><mat-icon>next_week</mat-icon>Career</button>
+    <button class="mat-menu" mat-button [routerLink]="['/contact-us']"><mat-icon> call</mat-icon>Contact Us</button>
+    <button class="mat-menu" mat-button [routerLink]="['/about-us']"><mat-icon>supervisor_account</mat-icon>About Us</button>
+    <a [routerLink]="['/ask-expert']" ><div class="btn"><span >Ask an Expert</span><i class="ico"></i></div></a>
+    
+    <mat-menu #homeMenu="matMenu" >
+        <app-home></app-home>
+    </mat-menu>
+    
+    <mat-menu #productsMenu="matMenu">
+        <!-- <button mat-menu-item *ngFor="let item of menuItems">{{ item }}</button> -->
+        <app-all-products></app-all-products>
+    </mat-menu>
+    
+    <mat-menu #equipmentMenu="matMenu">
+        <app-lab-equipments></app-lab-equipments>
+    </mat-menu>
+    
+    <mat-menu #suppliesMenu="matMenu">
+        <app-lab-supplies></app-lab-supplies>
+    </mat-menu>
+    
+    <mat-menu #catalogsMenu="matMenu">
+        <app-catalogs></app-catalogs>
+    </mat-menu>
+    
+    <mat-menu #contactMenu="matMenu">
+        <app-contact-us></app-contact-us>
+    </mat-menu>
+    
+    <mat-menu #careerMenu="matMenu">
+    </mat-menu>
+
+    <mat-menu #aboutMenu="matMenu">
+        <app-about-us></app-about-us>
+    </mat-menu>
+
+    <mat-menu #askExpert="matMenu">
+        <app-ask-expert></app-ask-expert>
+    
+    </mat-menu>
+</div>
+
+<mat-sidenav-container class="app-container">
+    <mat-sidenav #sidenav mode="side" [class.mat-elevation-z4]="true" class="app-sidenav">
+        <mat-nav-list>
+            <mat-list-item routerLink="#">
+                <mat-icon>dashboard</mat-icon><span>Products</span>
+            </mat-list-item>
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                    Lab Equipments
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <div *ngFor="let equipment of labEquipmentsList">
+                        <!-- <a mat-list-item [routerLink]="['/products/lab-equipments/product-details',supplies]"> -->
+                        <a mat-list-item  href="javascript:void(0);" (click)="forceRoute('equipments', equipment)">
+                            <span>{{ equipment }}</span>
+                        </a>
+                    </div>
+                   
+                </mat-nav-list>
+            </mat-expansion-panel>
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                    Lab Supplies
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <div *ngFor="let supplies of labSuppliesList">
+                        <!-- <a mat-list-item [routerLink]="['/products/lab-supplies/product-details',supplies]"> -->
+                        <a mat-list-item (click)="forceRoute('supplies', supplies)">
+                            <span>{{ supplies }}</span>
+                        </a>
+                    </div>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fullscreen>
+                <!-- <img class="animated-image" src="../assets/images/labmateHome.jpg" alt="labmate-background"> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container> 
+
+<app-footer></app-footer>
+

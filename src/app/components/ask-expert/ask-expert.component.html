@@ -1,0 +1,39 @@
+<h1>Ask an Expert</h1>
+
+<div class="container ">
+
+    <form  [formGroup]="askExpertForm" (submit)="onSubmit()">
+
+        <!-- Name -->
+        <div class="form-group position-relative">
+            <label for="formName" class="d-block"></label>
+            <input type="text" id="formName" class="form-control thick" placeholder="Name">
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group position-relative">
+            <label for="formEmail" class="d-block"></label>
+            <input type="email" id="formEmail" class="form-control thick" formControlName="email" required placeholder="E-mail">
+        </div>
+
+        <!-- Product -->
+        <div class="form-group position-relative">
+            <label for="formProduct" class="d-block"></label>
+            <input type="text" id="formProduct" class="form-control  thick" placeholder="Product">
+        </div>
+
+        <!-- Message -->
+        <div class="form-group message">
+            <textarea id="formMessage" class="form-control " rows="7" placeholder="     Message"></textarea>
+        </div>
+        
+        <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY" formControlName="recaptcha"></div> -->
+
+        <!-- Submit btn -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" tabIndex="-1">Send Message</button>
+        </div>
+</form>
+
+</div>
+

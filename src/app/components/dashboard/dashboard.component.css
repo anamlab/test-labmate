@@ -1,0 +1,29 @@
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.box {
+    display: flex; 
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.lab-equipments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+
+p {
+    font-size: small;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,46 @@
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a [routerLink]="['/home']" data-abc="true"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+    </li>
+          <li class="breadcrumb-item">
+    <a [routerLink]="['/all-products']"  data-abc="true" style="text-decoration: none;">Products</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a [routerLink]="['/products/lab-equipments']"  data-abc="true" style="text-decoration: none;"> Lab Equipments</a>
+ </li>
+</ul>
+
+<div class="container justify-content-center">
+   <h1> Laboratory Equipment</h1>
+    <p>Discover a world of cutting-edge laboratory equipment designed to elevate your research and experimentation. From state-of-the-art instruments to essential lab tools, our comprehensive selection ensures you have the right equipment at your fingertips. Whether you're in the fields of biotechnology, chemistry, or materials science, our high-quality solutions empower your pursuit of scientific excellence. Explore our offerings and equip your laboratory for success.</p>
+
+  <div *ngFor="let equipment of laboratoryEquipments; let i = index">
+    <mat-card class="product-card">
+      <img class="card-image" [src]="equipment.imageSrc" [alt]="equipment.altText">
+      <mat-card-title class="title">
+        <a [routerLink]="['/products/lab-equipments/product-details', equipment.title]">{{ equipment.title }}</a>
+        <i class="material-icons" (click)="toggle(i)">
+          arrow_downward
+        </i>
+      </mat-card-title>
+      <mat-card-content *ngIf="equipment.subCategories && equipment.subCategories.length > 0">
+        <div [@bodyExpansion]="cardStates[i]" class="expandable-content">
+          <div *ngFor="let subCategory of equipment.subCategories" class="subcats">
+            <a [routerLink]="['/products/lab-equipments/product-details/sub-category-product', subCategory, equipment.title]"
+              >{{ subCategory }}</a
+            >
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-card-content>
+    </mat-card>
+    <br>
+  </div>
+  
+</div>
+
+    
+    
+    
+    

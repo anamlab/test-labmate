@@ -1,0 +1,52 @@
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    color: #1b3358 ;
+}
+
+th {
+  color: #064b52; 
+  font-weight: 600;
+}
+
+
+.table_div {
+  display: flex;
+  justify-content: center;
+  background-color: transparent; /* Light gray background */
+  padding: 20px;
+}
+
+ .table-responsive {
+  overflow-x: auto;
+}
+
+.compare_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.compare_table th,
+.compare_table td {
+  border: 1px solid #ddd; 
+  padding: 8px;
+  text-align: left;
+}
+
+.compare_table th {
+  background-color: transparent; 
+  color: black;
+}
+
+.compare_table tr:nth-child(even) {
+  background-color: #f2f2f2; 
+}
+
+.compare_table tr:hover {
+  background-color: #e0e0e0; 
+} 

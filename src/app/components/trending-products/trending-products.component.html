@@ -1,0 +1,16 @@
+<mat-card class="product-card" (click)="toggleCardContent()">
+    <mat-card-header>
+      <div mat-card-avatar class="product-header-image"></div>
+      <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="imageSrc" [alt]="altText" (click)="toggleCardContent()">
+    <mat-card-content *ngIf="showCardContent">
+      <p>{{ content }}</p>
+    </mat-card-content>
+    <mat-card-actions class="card-button">
+      <button mat-stroked-button color="primary" mat-button >View</button>
+      <button mat-stroked-button color="primary" mat-button>Catalog</button>
+    </mat-card-actions>
+</mat-card>
+<br>
+  

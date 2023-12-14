@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklabmate=self.webpackChunklabmate||[]).push([[373],{5380:(_,s,t)=>{t.r(s),t.d(s,{LabSuppliesModule:()=>o});var u=t(6814),n=t(7201),l=t(5879);let o=(()=>{class a{static#t=this.\u0275fac=function(i){return new(i||a)};static#a=this.\u0275mod=l.oAB({type:a});static#s=this.\u0275inj=l.cJS({imports:[u.ez,n.Q]})}return a})()}}]);

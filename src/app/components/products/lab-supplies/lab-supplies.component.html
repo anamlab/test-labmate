@@ -1,0 +1,43 @@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a [routerLink]="['/home']" data-abc="true"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+    </li>
+          <li class="breadcrumb-item">
+    <a [routerLink]="['/all-products']"  data-abc="true" style="text-decoration: none;"> Products</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a [routerLink]="['/products/lab-supplies']"  data-abc="true" style="text-decoration: none;"> Lab Supplies</a>
+    </li>
+</ul>
+ 
+<div class="container justify-content-center">
+    <h1> Laboratory Supplies</h1>
+    <p>Elevate your laboratory operations with our comprehensive range of high-quality lab supplies. From glassware to consumables, safety equipment to instrumentation, we provide the tools you need for precision, reliability, and efficiency in your scientific endeavors. Explore our range of products today and equip your lab for success.</p>
+
+    <div *ngFor="let supplies of laboratorySupplies; let i = index">
+      <mat-card class="product-card">
+        <img class="card-image" [src]="supplies.imageSrc" [alt]="supplies.altText">
+        <mat-card-title class="title">
+          <a [routerLink]="['/products/lab-supplies/product-details', supplies.title]">{{ supplies.title }}</a>
+          <i class="material-icons" (click)="toggle(i)">
+            arrow_downward
+          </i>
+        </mat-card-title>
+        <mat-card-content *ngIf="supplies.subCategories && supplies.subCategories.length > 0">
+          <div [@bodyExpansion]="cardStates[i]" class="expandable-content">
+            <div *ngFor="let subCategory of supplies.subCategories" class="subcats">
+              <a [routerLink]="['/products/lab-supplies/product-details/sub-category-product', subCategory, supplies.title]"
+                >{{ subCategory }}</a
+              >
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+      </mat-card>
+      <br>
+    </div>
+         
+</div>
+
+    
+    

@@ -1,0 +1,37 @@
+
+<h1>Catalogs</h1>
+<div class="container">
+  <h2>Product Catalog {{ currentPage }}</h2><br>
+
+  <ng-template #noData>
+    <p>No data available for page {{ currentPage }}</p>
+  </ng-template>
+
+  <mat-accordion *ngIf="displayedCatalog.names.length > 0; else noData" class="catlog-product" multi="false">
+    <mat-expansion-panel *ngFor="let catalog of displayedCatalog.names;" multi="false"  [expanded]="panelOpenState" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{catalog}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <div *ngFor="let link of getLinksForCatalog(catalog)" class="pdf-buttons">
+        {{ link }}
+    
+        <button mat-icon-button  color="primary" [routerLink]="['/products/catalog-preview', link ]"><mat-icon>description</mat-icon> </button>
+        <button mat-icon-button (click)="downloadPDF(catalog)"><mat-icon>downloadPDF</mat-icon></button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+</div>
+
+  <!-- Pagination -->
+  <div class="pagination-container">
+    <button mat-button (click)="onPageChange(getPreviousPage())" [disabled]="currentPage === 'A'">Previous</button>
+    <button *ngFor="let page of currentPageBatch" mat-button (click)="onPageChange(page)" [disabled]="currentPage === page">
+      {{ page }}
+    </button>
+    <button mat-button (click)="onPageChange(getNextPage())" [disabled]="currentPage === 'Z'">Next</button>
+  </div>
+  

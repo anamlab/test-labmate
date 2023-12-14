@@ -1,0 +1,60 @@
+<div >
+    <div class="social">
+        <div class="social-left">
+          <!-- Facebook Icon -->
+          <a href="https://www.facebook.com/labmatescientific" target="_blank">
+            <fa-icon [icon]="facebookIcon"></fa-icon>
+          </a>
+      
+          <!-- Twitter Icon -->
+          <a href="https://twitter.com/labmateltd" target="_blank">
+            <fa-icon [icon]="twitterIcon"></fa-icon>
+          </a>
+      
+          <!-- Instagram Icon -->
+          <a href="https://www.instagram.com/#" target="_blank">
+            <fa-icon [icon]="instagramIcon"></fa-icon>
+          </a> 
+      
+          <!-- Linkedin Icon -->
+          <a href="https://www.linkedin.com/#" target="_blank">
+            <fa-icon [icon]="linkdinIcon"></fa-icon>
+          </a>
+        </div>
+      
+        <div class="social-right">
+          <!-- Email Icon -->
+          <a href="mailto:info@labmate.com" target="_blank">
+            <fa-icon [icon]="emailIcon">Email Us!</fa-icon>
+          </a><span> info@labmate.com | </span>
+
+      
+          <!-- Whatsapp Icon -->
+          <a target="_blank" title="+1 (301) 450-0503" href="https://wa.me/+13014500503">
+            <fa-icon [icon]="whatsappIcon"></fa-icon>
+          </a><span> 13014500503</span>
+        </div>
+      </div>
+
+    <mat-toolbar class="toolbar">
+       
+        <div class="logo">
+            <!-- <img src="../assets/images/logo-removebg.png" > -->
+            <img src="./assets/images/labmate-logo.jpg" class="mobile_logo" alt="Logo">
+        </div>
+
+        <form class="search-form">
+            <mat-form-field class="searchbar">
+              <input type="text" matInput placeholder="Search" name="search" class="search-input" [(ngModel)]="search">
+              <button class="searchButton" matSuffix mat-button color="primary" (click)="searchProduct()"> 
+                <fa-icon [icon]="searchIcon" style="color: #0766AD"></fa-icon>
+              </button>
+            </mat-form-field>
+            <br/>
+            {{search}}
+        </form>
+        
+    </mat-toolbar>
+
+
+

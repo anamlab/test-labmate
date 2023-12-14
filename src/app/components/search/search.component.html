@@ -1,0 +1,37 @@
+<h1>Search Result: <span>{{searchTerm}}</span></h1>
+<div class="container">
+
+    <div class="row" *ngIf="filteredProducts.length > 0; else noData" >
+        <div class="col" *ngFor="let product of filteredProducts; let i = index" >
+          <mat-card class="product-card" >
+                <img class="card-image" [src]="product.imageSrc" [alt]="product.altText" [routerLink]="['/products/lab-equipments/product-details', product.title]">
+                <mat-card-title class="title" >
+                  <a [routerLink]="['/products/lab-equipments/product-details', product.name]">{{ product.name }}</a>
+                </mat-card-title>
+                <!-- <mat-card-content>
+                  <div [@bodyExpansion]="cardStates[i]" class="expandable-content">
+                    <div *ngFor="let subCategory of product.subCategories" class="subcats">
+                      <a [routerLink]="['/products/lab-equipments/product-details/sub-category-product', subCategory, product.title]">{{ subCategory }}</a>
+                    </div>
+                  </div>
+                  <mat-divider></mat-divider>
+                </mat-card-content> -->
+                <mat-card-actions class="card-button justify-content-center">
+                    <button mat-stroked-button color="primary" (click)="viewDetails( product.name , product.id )" mat-button >View</button> 
+                    &nbsp;&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" mat-button [routerLink]="['/products/catalog-preview', product.name ]">Catalog</button>
+                  </mat-card-actions>
+            </mat-card>
+          <br>
+        </div>
+    </div>
+    <ng-template #noData>
+        <p>No result found.</p>
+    </ng-template>
+    <div class="top-search-board">
+        <h2>Our Top Searches</h2>
+        <ul  *ngFor="let product of topSearchProducts; let i = index">
+            <li type="square"><a [routerLink]="['/products/lab-equipments/product-details', product.name]">{{ product.name }}</a></li>
+        </ul>
+    </div>
+</div>

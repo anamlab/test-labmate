@@ -1,0 +1,77 @@
+<h1 >Apply for a Position</h1>
+<h3>Please complete the form below to join our team.</h3>
+<div class="container">
+      
+       <form  (submit)="onSubmit()">
+        <div class="row">
+          <div class="col-6 ">
+              <input type="text" class="form-control cf" id="per_fname" name="per_fname" required="" placeholder="First Name">
+              <span class="err_message"></span>
+          </div>          
+          <div class="col-6">
+              <input type="text" class="form-control cf" id="per_lname" name="per_lname" required="" placeholder="Last Name" >
+              <span class="err_message"></span>
+          </div>   
+          <div class="col-6">
+              <input type="text" class="form-control cf" id="per_phone" name="per_phone" required="" placeholder="Contact Number" >
+              <span class="err_message"></span>
+          </div>     
+          <div class="col-6">
+              <input type="email" class="form-control cf" id="per_email" name="per_email" required="" placeholder="Email">
+              <span class="err_message"></span>
+          </div>   
+       <div class="col-12">
+          <textarea class="form-control cf" style="height: 60px" id="per_address" name="per_address" required="" data-gramm="false" wt-ignore-input="true" placeholder="Address"></textarea>
+           <span class="err_message"></span>
+      </div>   
+      <div class="col-6">
+          <input type="text" class="form-control cf" id="per_state" name="per_state" required="" placeholder="State">
+          <span class="err_message"></span>
+      </div>     
+      <div class="col-6">
+          <input type="text" class="form-control cf" id="per_country" name="per_country" required="" placeholder="Country">
+          <span class="err_message"></span>
+      </div>   
+       
+      <div class="col-6">
+          <input type="text" class="form-control cf" id="per_highedu" name="per_highedu" required="" placeholder="Highest Education">
+          <span class="err_message"></span>
+    </div>         
+  
+    <div class="col-6">
+        <select class="form-select cf" aria-label="Default select example" name="per_des_position" id="per_des_position" required="">
+        <option value="" selected="" class="placeholder">Select Career Area</option>
+            <option value="Content Writer">Content Writer</option>
+            <option value="Customer Service">Customer Service</option>
+            <option value="Graphic Designer">Graphic Designer</option>
+            <option value="Marketing">Marketing</option>
+            <option value="PHP Developer">PHP Developer</option>
+            <option value="Product Manager">Product Manager</option>
+            <option value="Product Specialist">Product Specialist</option>
+            <option value="Tech Support">Tech Support</option>
+            <option value="UI Developer">UI Developer</option>
+            <option value="Other">Other</option>
+        </select>
+        <span class="err_message"></span>
+    </div>        
+    <div class="col-6">
+        <div class="form-group">
+
+          <div class="upload-container">
+            <input type="text" class="form-control cf" [placeholder]="placeholderText" disabled>
+            <button mat-icon-button (click)="selectFile()">
+              <mat-icon>cloud_upload</mat-icon>
+            </button>
+            <input type="file"  class="upload-file" #fileInput style="display: none" (change)="onFileSelected($event)">
+          </div>
+
+          <span class="err_message"></span>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" tabIndex="-1">Apply</button>
+      </div>
+    </div>
+    </form>
+</div>
+

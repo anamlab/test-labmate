@@ -1,0 +1,85 @@
+<h1>Product Comparison</h1>
+
+    <div class="table_div" id="overflowtest">
+        <div class="table-responsive">
+        <table mat-table class="compare_table mat-elevation-z8" [dataSource]="filteredProducts">
+            <!-- Product Details Column -->
+            <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef class="first_head">Product Details</th>
+            <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+            </ng-container>
+    
+            <!-- Other columns (Measure Range, Accuracy, etc.) -->
+            <!-- <ng-container *ngFor="let column of columnsToDisplay" [matColumnDef]="column">
+            <th mat-header-cell *matHeaderCellDef class="first_col">{{ column }}</th>
+            <td mat-cell *matCellDef="let product">{{ product[column.toLowerCase()] }}</td>
+            </ng-container> -->
+            <ng-container matColumnDef="imageSrc">
+                <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td mat-cell *matCellDef="let element"> <img [src]="[element.imageSrc]"> </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="measureRange">
+                <th mat-header-cell *matHeaderCellDef> Measure Range </th>
+                <td mat-cell *matCellDef="let element"> {{element.measureRange}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="accuracy">
+                <th mat-header-cell *matHeaderCellDef> Accuracy </th>
+                <td mat-cell *matCellDef="let element"> {{element.accuracy}} </td>
+            </ng-container>
+        
+            
+            <ng-container matColumnDef="linearError">
+                <th mat-header-cell *matHeaderCellDef> Linear Error </th>
+                <td mat-cell *matCellDef="let element"> {{element.linearError}} </td>
+            </ng-container>
+        
+        
+                <ng-container matColumnDef="measuringArea">
+                <th mat-header-cell *matHeaderCellDef>Measuring Area </th>
+                <td mat-cell *matCellDef="let element"> {{element.measuringArea}} </td>
+                </ng-container>
+                
+            
+                <ng-container matColumnDef="pressureDifference">
+                <th mat-header-cell *matHeaderCellDef> pressureDifference </th>
+                <td mat-cell *matCellDef="let element"> {{element.pressureDifference}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="dimension">
+                    <th mat-header-cell *matHeaderCellDef> Linear Error </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dimension}} </td>
+                </ng-container>
+            
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="airFlow">
+                <th mat-header-cell *matHeaderCellDef> Air Flow </th>
+                <td mat-cell *matCellDef="let element"> {{element.airFlow}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="power">
+                    <th mat-header-cell *matHeaderCellDef> Power </th>
+                    <td mat-cell *matCellDef="let element"> {{element.power}} </td>
+                </ng-container>
+        
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="first_col">Action</th>
+            <td mat-cell *matCellDef="let product">
+                <button mat-icon-button (click)="removeProduct(product)">
+                <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+            </ng-container>
+    
+            <!-- Table Header and Rows -->
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+        </table>
+        </div>
+    </div>

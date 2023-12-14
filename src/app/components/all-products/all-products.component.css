@@ -1,0 +1,82 @@
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-align: center;
+    color: #1b3358 ;
+    margin-top: 15px;
+}
+p {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0px 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+    color: #103d68 ;
+    margin-top: 15px;
+  }
+
+button {
+    margin-right: 5px;
+}
+
+.product-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    min-height: 250px; 
+    max-height: auto;
+    position: relative;
+
+    .title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #1c345a;
+        text-align: center;
+    }
+
+    .card-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 8px 8px 0 0;
+    }
+}
+.subcats {
+   justify-content: center;
+   text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #103d68 ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .product-card {
+        width: 80%; /* Full width on mobile */
+        margin: 0 0 20px; /* Adjust margin for spacing between cards */
+    }
+}

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="container">
+            <img [src]="product.imageSrc" [alt]="product.altText" class="card-image">
+            <div>
+                <h1>{{ product.title}}</h1>
+                <p> {{ product.description }} </p>
+            </div>
+            <button *ngIf="!isOpen" style="margin-left: 20px;" mat-raised-button color="primary" mat-button (click)="openForm()"> Get Quote</button>
+    </div>
+    <div class="row">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="col">
+        <div *ngFor="let tab of tabs">
+        <mat-tab [label]="tab.title">
+            <div >  
+                <div  *ngFor="let content of tab.content">
+                    <mat-icon>label_important</mat-icon> {{ content}}
+                </div>
+                <div class="download-btn" *ngIf="tab.title==='Catalog'">
+                    <button mat-raised-button color="primary"  mat-button [routerLink]="['/products/catalog-preview', product.title ]">
+                    Download Catalog</button>
+                </div>
+                <div *ngIf="tab.title==='Specifications'" class="spec-table" >
+                      <table class="table">                                                             
+                        <tbody>
+                          <tr *ngFor="let data of tab.tableData">
+                            <td>{{ data.name }}</td>
+                            <td>{{ data.value }}</td>
+                          </tr>
+                        </tbody>
+                      </table>                  
+                </div> 
+            </div>
+        </mat-tab>
+        </div>
+    </mat-tab-group>
+            
+    <form *ngIf="isOpen" (submit)="onSubmit()"  class="col">
+        <h2>Get Quote for<b> {{ product.title}} </b></h2>
+        <!-- Name -->
+        <div class="form-group ">
+            <label for="formName" class="d-block"></label>
+            <input type="text" id="formName" class="form-control thick" placeholder="Name">
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group ">
+            <label for="formEmail" class="d-block"></label>
+            <input type="email" id="formEmail" class="form-control thick" formControlName="email" required placeholder="E-mail">
+        </div>
+
+        <!-- Message -->
+        <div class="form-group ">
+            <textarea id="formMessage" class="form-control " rows="3" placeholder="Message"></textarea>
+        </div>
+    
+        <!-- Submit btn -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" tabIndex="-1">Send Message</button>
+        </div>
+    </form>
+ 
+    </div>
+</div>
+                    
+<h2> Related Products</h2>
+<div class="container">
+    <div *ngFor="let product of relatedProducts" >
+        <mat-card class="mat-card" >
+            <mat-card-title class="title">
+                <a [routerLink]="['/products/lab-equipments/product-details', product.title]">{{ product.title }}</a>   
+            </mat-card-title>
+            <img class="card-image" [src]="product.imageSrc" alt="{{ product.title }}">
+            <mat-card-actions class="card-button justify-content-center">
+                <button mat-stroked-button color="primary" mat-button (click)="viewDetails( product.title , product.id )">View</button> &nbsp;&nbsp;&nbsp;
+                <button mat-raised-button color="primary" mat-button [routerLink]="['/products/catalog-preview', product.title ]">Catalog</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

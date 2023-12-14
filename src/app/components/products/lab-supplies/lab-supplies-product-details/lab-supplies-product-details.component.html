@@ -1,0 +1,51 @@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a [routerLink]="['/home']" data-abc="true"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+    </li>
+          <li class="breadcrumb-item">
+    <a [routerLink]="['/all-products']"  data-abc="true" style="text-decoration: none;">Products</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a [routerLink]="['/products/lab-supplies']"  data-abc="true" style="text-decoration: none;"> Lab supplies</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a [routerLink]="['/products/lab-supplies/product-details']"  data-abc="true" style="text-decoration: none;"> {{title}}</a>
+    </li>
+</ul>
+
+<div class="container">
+    <h1>{{ title }}</h1>
+    <p>The air permeability tester represents a cutting-edge technological tool designed for swift and precise measurement of air permeability across diverse materials. Operating as a fully automated system, it is under the control of a microcomputer, ensuring efficiency and accuracy. This advanced instrument boasts a wide measurement range, spanning from 0 to 2500 ml/min, and accommodates pressure differences from 0.05 to 6 kPa. Flexibility is a key feature, allowing users to obtain results in their preferred units of measurement. Furthermore, the air permeability tester incorporates user-friendly components, such as an LCD screen for intuitive navigation and a micro-printer for swift and legible result documentation.</p>
+
+</div>
+
+<div class="row subcats">
+    <div *ngFor="let subCategory of subCategories" class="col" >
+       <a class="link-btn"  mat-raised-button [routerLink]="['/products/lab-supplies/product-details/sub-category-product',title, subCategory]">{{ subCategory }}</a>
+    </div>
+</div>
+
+<div class="container">
+    <div *ngFor="let supplies of labSuppliesProducts" >
+        <mat-card class="mat-card" >
+            <button mat-mini-fab [color]="isCardSelected(supplies.title) ? 'accent' : 'primary'" aria-label="Add" class="top-right-button" (click)="handleButtonClick(supplies.title)">
+                <mat-icon>{{ isCardSelected(supplies.title) ? 'done' : 'add' }}</mat-icon>
+            </button>
+            <img class="card-image" [src]="supplies.imageSrc" alt="{{ supplies.title }}" (click)="viewDetails( supplies.title , supplies.id )">
+          
+            <mat-card-title class="title" (click)="viewDetails( supplies.title , supplies.id )">
+                <a [routerLink]="['/products/lab-supplies/product-details', supplies.title]">{{ supplies.title }}</a>   
+            </mat-card-title>
+            <mat-card-actions class="card-button justify-content-center">
+                <button mat-stroked-button color="primary" (click)="viewDetails( supplies.title , supplies.id )" mat-button >View</button> 
+                &nbsp;&nbsp;&nbsp;
+                <button mat-raised-button color="primary" mat-button [routerLink]="['/products/catalog-preview', supplies.title ]">Catalog</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<div class="container">
+    <button mat-raised-button color="primary" mat-button (click)="compareProducts()"   [disabled]="selectedCardTitles.length < 2">
+      Compare ({{ selectedCardTitles.length }})
+    </button>
+</div>

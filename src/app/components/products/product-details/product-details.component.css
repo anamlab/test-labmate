@@ -1,0 +1,96 @@
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    color: #1b3358 ;
+}
+
+a {
+    color: #1c345a ;
+    text-decoration: none;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #3f5575 ;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-btn {
+  margin-left :50px;
+}
+
+.form-group {
+    margin : 10px 150px 10px;
+}
+
+.mat-card {
+    margin: 10px;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px; 
+    position: relative;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .sub-category {
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .spec-table {
+    width: 60%;
+  }
+  
+  /* .card-image {
+    width: 100px ;
+    height: 100px; 
+    border-radius: 8px 8px 0 0; 
+  } */
+
+  
+  
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+
+  .container {
+    flex-direction: column;
+    }
+  
+  .card-image {
+      height: 100px;
+      width: 100px;
+  }
+
+  h1 {
+    font-size: 1em;
+    margin-top: 0px;
+
+  }
+  
+  .form-group {
+    margin : 0px 0px 0px;
+  }
+  .spec-table {
+    width: 100%;
+  }
+}

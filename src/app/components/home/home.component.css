@@ -1,0 +1,112 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.about {
+ margin: 10px 40px;
+}
+
+.heading1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: xx-large;
+}
+.heading1 .font1,.font3 {
+    color: darkblue;
+    font-size: 34px;
+    font-weight: 500;
+}
+.heading1 .font2 {
+    color: red;
+    font-size: 42px;
+    font-weight: 900;
+    padding: 15px 0px 15px;
+}
+
+.heading2 p{
+    margin-top: 10px;
+    font-size: 16px;
+
+}
+/* .animated-image {
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slideIn 1.5s ease-in-out forwards;
+    border-radius: 8px;
+    box-shadow: 1px 0px 40px 12px rgba(27, 109, 126, 0.85);
+    -webkit-box-shadow: 1px 0px 40px 5px rgba(27, 109, 126, 0.85);
+    -moz-box-shadow: 1px 0px 40px 12px rgba(27, 109, 126, 0.85);
+} */
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lab-equipments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2em;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    color: #1b3358 ;
+}
+
+p {
+    font-size: small;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    .box {
+        height: auto;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+    .animated-image {
+        height: 250px;
+        width: 300px;
+    }
+
+    .heading1 .font1,.font3 {
+        font-size: 22px;
+        font-weight: 500;
+    }
+    .heading1 .font2 {
+        color: red;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    .heading2 p{
+        font-size: 14px;
+    
+    }
+}

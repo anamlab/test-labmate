@@ -1,0 +1,60 @@
+<div class="container">
+    <h1 style="text-align: center;"> LABORATORY EQUIPMENT</h1>
+
+    <div class="lab-equipments">
+      <div class="row">
+        <div class="col-3" *ngFor="let product of products">
+          <app-products
+            [subtitle]="product.subtitle"
+            [imageSrc]="product.imageSrc"
+            [altText]="product.altText"
+            [content]="product.content"
+          ></app-products>
+        </div>
+      </div>
+    </div>  
+</div>
+
+<div class="container">
+    <h1 style="text-align: center; text-decoration: underline;"> Trending at Labmate</h1>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end">
+    <div *ngFor="let tab of tabs">
+      <mat-tab [label]="tab.title">
+        <div class="lab-equipments">
+          <div class="row">
+            <div class="col" *ngFor="let product of tab.content">
+              <app-products
+                [subtitle]="product.subtitle"
+                [imageSrc]="product.imageSrc"
+                [altText]="product.altText"
+                [content]="product.content"
+              ></app-products>
+            </div>
+          </div>
+        </div> 
+      </mat-tab>
+    </div>
+  </mat-tab-group>
+</div>
+
+<div class="container">
+  <h1 style="text-align: center;"> Products at Glance</h1>
+
+  <div class="lab-equipments">
+    <div class="row">
+      <div class="col-3" *ngFor="let product of products">
+        <app-products
+          [subtitle]="product.subtitle"
+          [imageSrc]="product.imageSrc"
+          [altText]="product.altText"
+          [content]="product.content"
+        ></app-products>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+
+
